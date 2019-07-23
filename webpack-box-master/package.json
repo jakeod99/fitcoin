@@ -1,0 +1,20 @@
+{
+  "name": "webpack-box-master",
+  "version": "1.0.0",
+  "description": "This box is our most bare official implementation with Webpack.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "openzeppelin-solidity": "2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
