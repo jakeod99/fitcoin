@@ -8,8 +8,18 @@ module.exports = {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
   },
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    port: 8080,
+    proxy: {
+        '/api': {
+            target: 'http://localhost:3000',
+            secure: false
+        }
+    }
+  },
   plugins: [
-    new CopyWebpackPlugin([{ from: "./src/index.html", to: "index.html" }]),
-  ],
-  devServer: { contentBase: path.join(__dirname, "dist"), compress: true },
+    new CopyWebpackPlugin([{ from: "./src/index.html", to: "index.html" }])
+  ]
 };
