@@ -52,6 +52,11 @@ const App = {
     const status = document.getElementById("status");
     status.innerHTML = message;
   },
+
+  profilePage: async function() {
+    console.log(document.location.href);
+    document.location.href = "http://localhost:8080/profile.html";
+  },
 };
 
 window.App = App;
@@ -70,6 +75,12 @@ window.addEventListener("load", function() {
       new Web3.providers.HttpProvider("http://127.0.0.1:9545"),
     );
   }
+
+  $(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+      $(this).tab('show');
+    });
+  });
 
   App.start();
 });
