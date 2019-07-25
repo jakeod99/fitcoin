@@ -1,5 +1,5 @@
 import Web3 from "web3";
-import fitcoinArtifact from "../../build/contracts/Fitcoin.json";
+import fitcoinArtifact from "../../../build/contracts/Fitcoin.json";
 
 const App = {
   web3: null,
@@ -11,9 +11,12 @@ const App = {
 
     try {
       // get contract instance
-      console.log("hi")
+      console.log("hi");
       const networkId = await web3.eth.net.getId();
+      console.log(networkId);
       const deployedNetwork = fitcoinArtifact.networks[networkId];
+      console.log('fitcoinartifact.networks', fitcoinArtifact.networks);
+      console.log(deployedNetwork);
 
       this.fitcoin = new web3.eth.Contract(
         fitcoinArtifact.abi,
@@ -33,15 +36,19 @@ const App = {
   },
 
   createCompetition: async function() {
-    console.log("here");
+    console.log("creating competition!");
     const amount = parseInt(document.getElementById("amount").value);
     const receiver = document.getElementById("receiver").value;
 
-    const { createCompetition } = this.fitcoin.methods;
-    const id = await createCompetition(amount, receiver).call({ from: this.account });
+    console.log(this.fitcoin);
+    console.log(this.fitcoin.methods);
 
-    const balanceElement = document.getElementsByClassName("balance")[0];
-    balanceElement.innerHTML = id;
+    const { createCompetition } = this.fitcoin.methods;
+    const id = await createCompetition(amount, receiver).send({ from: this.account, value: amount*10**18 });
+    // .then(function (x) {
+    //   console.log('id: ', x);
+    // });
+
   },
 
   // makeBet: async function() {
@@ -76,6 +83,11 @@ const App = {
     const status = document.getElementById("status");
     status.innerHTML = message;
   },
+
+  profilePage: async function() {
+    console.log(document.location.href);
+    document.location.href = "http://localhost:8080/profile.html";
+  },
 };
 
 window.App = App;
@@ -94,6 +106,12 @@ window.addEventListener("load", function() {
       new Web3.providers.HttpProvider("http://127.0.0.1:9545"),
     );
   }
+
+  $(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+      $(this).tab('show');
+    });
+  });
 
   App.start();
 });
