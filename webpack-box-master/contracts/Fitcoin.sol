@@ -11,10 +11,11 @@ contract Fitcoin {
     id = 0;
   }
 
-  function createBet(string memory _name, uint betSize) public returns (uint) {
+  function createCompetition(uint betSize, address player) public payable returns (uint) {
     id++;
-    Bet newBet = new Bet(id, _name, betSize);
+    Bet newBet = new Bet(id, player, betSize);
     bets[id] = newBet;
+    newBet.addPlayer(msg.sender);
     return id;
   }
 
@@ -23,6 +24,7 @@ contract Fitcoin {
     require(bets[id].active(), "Bet not currently in progress.");
     require(msg.value == bets[id].betAmount(), "Incorrect Ethereum value for bet.");
     require(!bets[id].playerExists(msg.sender), "You are already in this bet!");
+    require(bets[id].player() == msg.sender, "You are not in this competition.");
     bets[id].addPlayer(msg.sender);
   }
 
@@ -31,9 +33,8 @@ contract Fitcoin {
     /* require(bets[_id].active() == true, "Bet is not running.") */
     bool cancelled = bets[_id].cancelBet();
     if (cancelled) {
-      for (uint i = 0; i < bets[_id].numPlayers(); i++) {
-        bets[_id].allPlayers(i).transfer(bets[_id].betAmount());
-      }
+      bets[_id].owner.transfer(bets[_id].betAmount())
+      bets[_id].player.transfer(bets[_id].betAmount());
     }
   }
 

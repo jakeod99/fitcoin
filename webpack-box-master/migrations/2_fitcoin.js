@@ -1,4 +1,4 @@
-const Betting = artifacts.require("./Betting.sol");
+const Fitcoin = artifacts.require("Fitcoin");
 
 module.exports = function(deployer) {
   deployer.deploy(Fitcoin);

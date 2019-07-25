@@ -1,53 +1,77 @@
 import Web3 from "web3";
+import fitcoinArtifact from "../../build/contracts/Fitcoin.json";
 
 const App = {
   web3: null,
   account: null,
-  meta: null,
+  fitcoin: null,
 
   start: async function() {
     const { web3 } = this;
 
     try {
       // get contract instance
+      console.log("hi")
       const networkId = await web3.eth.net.getId();
-      const deployedNetwork = metaCoinArtifact.networks[networkId];
-      this.meta = new web3.eth.Contract(
-        metaCoinArtifact.abi,
+      const deployedNetwork = fitcoinArtifact.networks[networkId];
+
+      this.fitcoin = new web3.eth.Contract(
+        fitcoinArtifact.abi,
         deployedNetwork.address,
       );
 
       // get accounts
+      console.log('two');
       const accounts = await web3.eth.getAccounts();
+      console.log(accounts)
       this.account = accounts[0];
 
-      this.refreshBalance();
     } catch (error) {
+      console.log(error);
       console.error("Could not connect to contract or chain.");
     }
   },
 
-  refreshBalance: async function() {
-    const { getBalance } = this.meta.methods;
-    const balance = await getBalance(this.account).call();
-
-    const balanceElement = document.getElementsByClassName("balance")[0];
-    balanceElement.innerHTML = balance;
-  },
-
-  sendCoin: async function() {
+  createCompetition: async function() {
+    console.log("here");
     const amount = parseInt(document.getElementById("amount").value);
     const receiver = document.getElementById("receiver").value;
 
-    this.setStatus("Initiating transaction... (please wait)");
+    const { createCompetition } = this.fitcoin.methods;
+    const id = await createCompetition(amount, receiver).call({ from: this.account });
 
-    const { sendCoin } = this.meta.methods;
-    await sendCoin(receiver, amount).send({ from: this.account });
-
-    this.setStatus("Transaction complete!");
-    this.refreshBalance();
+    const balanceElement = document.getElementsByClassName("balance")[0];
+    balanceElement.innerHTML = id;
   },
 
+  // makeBet: async function() {
+  //   const id = parseInt(document.getElementById("amount").value);
+  //
+  //   const { makeBet } = this.fitcoin.methods;
+  //   await makeBet(id).call({ from: this.account });
+  //
+  // },
+
+  // cancelBet: async function() {
+  //   const id = parseInt(document.getElementById("amount").value);
+  //
+  //   const { cancelBet } = this.fitcoin.methods;
+  //   await cancelBet(id).call({ from: this.account });
+  //
+  // },
+
+  // payoutBet: async function() {
+  //   const amount = parseInt(document.getElementById("amount").value);
+  //   const receiver = document.getElementById("receiver").value;
+  //
+  //   this.setStatus("Initiating transaction... (please wait)");
+  //
+  //   const { payoutBet } = this.fitcoin.methods;
+  //   await payoutBet(amount, receiver).call();
+  //
+  //   this.setStatus("Transaction complete!");
+  // },
+  //
   setStatus: function(message) {
     const status = document.getElementById("status");
     status.innerHTML = message;
