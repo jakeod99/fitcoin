@@ -16,5 +16,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.mitre.org/nlkennedy/fitcoin.git"
+  }
 }
