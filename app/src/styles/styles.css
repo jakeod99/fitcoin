@@ -21,3 +21,7 @@
   padding: 1%;
   margin-bottom: 1%;
 }
+
+.list-group-item {
+  cursor: pointer;
+}
