@@ -6,22 +6,27 @@ contract Bet {
   uint public total;
   uint public betAmount;
   bool public active;
-  address payable owner;
-  mapping (address => bool) public players;
+  address payable public owner;
+  address payable public player;
+  /* mapping (address => bool) public players;
   address payable[] public allPlayers;
-  string public name;
+  string public name; */
 
-  constructor(uint _id, string memory _name, uint _bet) public {
+  constructor(uint _id, address payable _player, uint _bet) public {
     owner = msg.sender;
     id = _id;
-    name = _name;
+    player = _player;
     betAmount = _bet;
-    active = true;
-    total = 0;
+    active = false;
+    total = betAmount;
   }
 
-  function addPlayer(address payable _player) public {
-    players[_player] = true;
+  function addPlayer() public {
+    /* require(msg.sender != owner, "You already bet!"); */
+    /* players[_player] = true; */
+    if(msg.sender == player) {
+      active = true;
+    }
     total += betAmount;
   }
 
@@ -32,13 +37,13 @@ contract Bet {
     return true;
   }
 
-  function playerExists(address payable _player) view public returns (bool) {
+  /* function playerExists(address payable _player) view public returns (bool) {
     return players[_player];
-  }
+  } */
 
-  function numPlayers() view public returns (uint) {
+  /* function numPlayers() view public returns (uint) {
     return allPlayers.length;
-  }
+  } */
 
 
 }
