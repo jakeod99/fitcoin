@@ -12,17 +12,21 @@ contract Bet {
   address payable[] public allPlayers;
   string public name; */
 
-  constructor(uint _id, address _player, uint _bet) public {
+  constructor(uint _id, address payable _player, uint _bet) public {
     owner = msg.sender;
     id = _id;
     player = _player;
     betAmount = _bet;
-    active = true;
-    total = 0;
+    active = false;
+    total = betAmount;
   }
 
-  function addPlayer(address payable _player) public {
+  function addPlayer() public {
+    /* require(msg.sender != owner, "You already bet!"); */
     /* players[_player] = true; */
+    if(msg.sender == player) {
+      active = true;
+    }
     total += betAmount;
   }
 
@@ -37,9 +41,9 @@ contract Bet {
     return players[_player];
   } */
 
-  function numPlayers() view public returns (uint) {
+  /* function numPlayers() view public returns (uint) {
     return allPlayers.length;
-  }
+  } */
 
 
 }
