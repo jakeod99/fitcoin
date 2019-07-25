@@ -1,5 +1,8 @@
 import Web3 from "web3";
+import {default as contract} from 'truffle-contract'
 import fitcoinArtifact from "../../../build/contracts/Fitcoin.json";
+
+let Fitcoin = contract(fitcoinArtifact);
 
 const App = {
   web3: null,
@@ -7,7 +10,11 @@ const App = {
   fitcoin: null,
 
   start: async function() {
-    const { web3 } = this;
+    const {
+      web3
+    } = this;
+
+    Fitcoin.setProvider(web3.currentProvider);
 
     try {
       // get contract instance
@@ -29,33 +36,89 @@ const App = {
     }
   },
 
+  getLastBet: async function() {
+    const {
+      getLastBet
+    } = this.fitcoin.methods;
+    const a = await getLastBet().call();
+    console.log(a);
+  },
+
   createCompetition: async function() {
-    const amount = parseInt(document.getElementById("amount").value);
+    const amount = web3.toWei(parseInt(document.getElementById("amount").value), "ether");
     const receiver = document.getElementById("receiver").value;
 
-    const { createCompetition } = this.fitcoin.methods;
-    const id = await createCompetition(amount, receiver).send({ from: this.account, value: amount*10**18 });
-    // .then(function (x) {
-    //   console.log('id: ', x);
-    // });
+    const {
+      createCompetition
+    } = this.fitcoin.methods;
+    const id = await createCompetition(amount, receiver).send({
+      from: this.account,
+      value: amount,
+    });
+  },
 
+  getShit: async function() {
+    const {
+      getOwner,
+      betAmount,
+      getPlayer
+    } = this.fitcoin.methods;
+    const owner = await getOwner(1).call();
+    console.log('owner', owner);
+    const amnt = await betAmount(1).call();
+    console.log('bet amount', amnt);
+    const player = await getPlayer(1).call();
+    console.log('player', player);
   },
 
   // makeBet: async function() {
-  //   const id = parseInt(document.getElementById("amount").value);
+  //   const amount = parseInt(document.getElementById("amount").value);
   //
-  //   const { makeBet } = this.fitcoin.methods;
-  //   await makeBet(id).call({ from: this.account });
-  //
+  //   const {
+  //     makeBet
+  //   } = this.fitcoin.methods;
+  //   await makeBet(1).send({
+  //     from: this.account,
+  //     value: amount * 10 ** 18
+  //   });
   // },
 
-  // cancelBet: async function() {
-  //   const id = parseInt(document.getElementById("amount").value);
-  //
-  //   const { cancelBet } = this.fitcoin.methods;
-  //   await cancelBet(id).call({ from: this.account });
-  //
-  // },
+  cancelBet: async function() {
+    web3.eth.getAccounts(function(error, accounts) {
+      if (accounts && accounts.length > 0) {
+        // we reload the contract instance
+        Fitcoin.deployed().then(function(instance) {
+          // we call the close function, specifying a gas amount that corresponds to an estimation
+          // of the cost of this operation. Note that if there are too many supporters to pay back
+          // this operation may fail
+          return instance.cancelBet(1, {
+            from: accounts[0],
+            gas: 500000
+          });
+        }).then(function(result) {
+          // given that certain node implementations don't throw an exception when a transaction fail
+          // we check the status of the transaction receipt
+          if (parseInt(result.receipt.status) === 1) {
+            console.log('yay')
+          } else {
+            console.error("Transaction didn't succeed");
+          }
+        }).catch(function(error) {
+          console.error(error);
+        })
+      }
+    });
+
+    // console.log('here!');
+    // const {
+    //   cancelBet
+    // } = this.fitcoin.methods;
+    // await cancelBet(1).call({
+    //   from: this.account,
+    //   gas: 500000
+    // });
+    // return instance.close({from: accounts[0], gas: 500000});
+  },
 
   // payoutBet: async function() {
   //   const amount = parseInt(document.getElementById("amount").value);
@@ -97,8 +160,8 @@ window.addEventListener("load", function() {
     );
   }
 
-  $(document).ready(function(){
-    $(".nav-tabs a").click(function(){
+  $(document).ready(function() {
+    $(".nav-tabs a").click(function() {
       $(this).tab('show');
     });
   });
