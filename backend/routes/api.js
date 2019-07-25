@@ -8,7 +8,7 @@ router.get('/hey', (req, res) => {
 
 router.get('/profile', (req, res) =>{
     var path = require('path');
-    res.sendFile(path.resolve('/../../app/src/profile.html'));
+    res.sendFile(path.resolve('../app/src/html/profile.html'));
 });
 
 module.exports = router;
