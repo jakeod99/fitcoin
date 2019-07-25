@@ -11,7 +11,11 @@ router.get('/styles.css', (req, res) =>{
     var path = require('path');
     res.sendFile(path.resolve('../app/src/styles/styles.css'));
 });
-
+// jpg References
+router.get('/profilepic.jpg', (req, res) => {
+    var path = require('path');
+    res.sendFile(path.resolve('../app/src/images/profilepic.jpg'));
+});
 // HTML References
 router.get('/index', (req, res) =>{
     var path = require('path');
