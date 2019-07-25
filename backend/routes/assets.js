@@ -16,5 +16,8 @@ router.get('/profilepic.jpg', (req, res) => {
 router.get('/inbox.js', (req, res) =>{
     res.sendFile(path.resolve('../app/src/js/inbox.js'));
 });
+router.get('/betManager.js', (req, res) => {
+    res.sendFile(path.resolve('../app/src/js/betManager.js'));
+});
 
 module.exports = router;
