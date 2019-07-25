@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MetaCoin | Truffle Webpack Demo w/ Frontend</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <title>Fitcoin</title>
+      <link rel="stylesheet" href="styles.css">
+  
+      <!-- Bootstrap -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </head>
   <style>
     input {
@@ -14,71 +18,37 @@
     }
   </style>
   <body>
-    <h1>MetaCoin — Example Truffle Dapp</h1>
-    <p>You have <strong class="balance">loading...</strong> META</p>
 
-    <h1>Send MetaCoin</h1>
-
-    <label for="amount">Amount:</label>
-    <input type="text" id="amount" placeholder="e.g. 95" />
-
-    <label for="receiver">To address:</label>
-    <input
-      type="text"
-      id="receiver"
-      placeholder="e.g. 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
-    />
-
-    <button onclick="App.sendCoin()">Send MetaCoin</button>
-
-    <p id="status"></p>
-    <p>
-      <strong>Hint:</strong> open the browser developer console to view any
-      errors and warnings.
-    </p>
-
-
-    <div class="container">
-      <h2>Fitcoin</h2>
-      <ul class="nav nav-tabs">
-        <li class="active"><a href="#index">Profile</a></li>
-        <li><a href="#search">Search</a></li>
-        <li><a href="#inbox">Inbox</a></li>
-        <li><a href="#bets">Bets</a></li>
-      </ul>
-    
-      <div class="tab-content">
-        <div id="profile" class="tab-pane fade in active">
-          <h3>Profile</h3>
-          <p>Username</p>
-
+  <!-- Header -->
+  <div class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+          <a class="navbar-brand" href="#" style="height: 100%; width: 100%; object-fit: contain">
+            Fitcoin
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto" style="font-size: 150%; font-size: 1.5vw;">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="api/inbox">Inbox</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="api/competitions">Competitions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="api/profile">Profile</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div id="search" class="tab-pane fade">
-          <h3>Search</h3>
-          
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-        <div id="inbox" class="tab-pane fade">
-          <h3>Inbox</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-
-            <div class="row" id="row">
-              <div class="column">
-                <h2>Incoming</h2>
-                <p>Some text..</p>
-              </div>
-              <div class="column" id="column">
-                <h2>Outgoing</h2>
-                <p>Some text..</p>
-              </div>
-            </div>
-
-        </div>
-        <div id="bets" class="tab-pane fade">
-          <h3>Bets</h3>
-          <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-        </div>
-      </div>
+      </nav>
     </div>
 
     <p>

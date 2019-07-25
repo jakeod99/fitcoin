@@ -1,19 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Fitcoin Profile</title>
-      <link rel="stylesheet" href="styles.css">
-  
-      <!-- Bootstrap -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Fitcoin</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </head>
+
   <body>
-    <h1>Profile</h1>
-    <p>Username of another file</p>
+
+    <!-- Navigation -->
+    <div class="header">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+          <div class="container">
+            <a class="navbar-brand" href="#" style="height: 100%; width: 100%; object-fit: contain">
+              <!-- <img src="http://placehold.it/150x50?text=Logo" alt="logo"> -->
+              Fitcoin
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto" style="font-size: 150%; font-size: 1.5vw;">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home
+                    <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Inbox</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Competitions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Profile</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
 
 
       <!-- Modal for logging in -->
@@ -207,7 +239,12 @@
       </div>
 
 
-    <script src="index.js"></script>
+    <!-- <p>
+      <a href="../profile.html"> Click for Profile </a>
+    </p>
 
+    <button onclick="App.profilePage()">New Page</button> -->
+
+    <script src="index.js"></script>
   </body>
 </html>
