@@ -2,20 +2,22 @@
   box-sizing: border-box;
 }
 
-.inbox-header {
-  background-color: #ADD7F6;
-}
-
 #new-competition-button {
   background-color: #2F32B0;
   border-color: #2F32B0;
 }
 
-.inbox-card {
+.page-card {
+  margin-bottom: 5%;
+}
+
+.page-section-title {
+  background-color: #ADD7F6;
   margin-bottom: 5%;
 }
 
 .page-title {
   text-align: center;
+  padding: 1%;
   margin-bottom: 1%;
 }
