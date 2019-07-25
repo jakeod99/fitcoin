@@ -11,12 +11,8 @@ const App = {
 
     try {
       // get contract instance
-      console.log("hi");
       const networkId = await web3.eth.net.getId();
-      console.log(networkId);
       const deployedNetwork = fitcoinArtifact.networks[networkId];
-      console.log('fitcoinartifact.networks', fitcoinArtifact.networks);
-      console.log(deployedNetwork);
 
       this.fitcoin = new web3.eth.Contract(
         fitcoinArtifact.abi,
@@ -24,9 +20,7 @@ const App = {
       );
 
       // get accounts
-      console.log('two');
       const accounts = await web3.eth.getAccounts();
-      console.log(accounts)
       this.account = accounts[0];
 
     } catch (error) {
@@ -36,12 +30,8 @@ const App = {
   },
 
   createCompetition: async function() {
-    console.log("creating competition!");
     const amount = parseInt(document.getElementById("amount").value);
     const receiver = document.getElementById("receiver").value;
-
-    console.log(this.fitcoin);
-    console.log(this.fitcoin.methods);
 
     const { createCompetition } = this.fitcoin.methods;
     const id = await createCompetition(amount, receiver).send({ from: this.account, value: amount*10**18 });
