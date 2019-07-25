@@ -50,7 +50,7 @@
         <h1>Inbox</h1>
 
         <!-- New Competition Modal -->
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#new-competition-modal" id="new-competition-button" onclick="Inbox.setDates()"> Create New Competition</button>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#new-competition-modal" id="new-competition-button" onclick="NewCompetition.setDates()"> Create New Competition</button>
       </div>
 
         <div id="new-competition-modal" class="modal fade" role="dialog">
@@ -63,8 +63,11 @@
               <div class="modal-body">
                 <form action="/action_page.php">
                   <div class="form-group">
-                    <label for="search">Search Opponent Username:</label>
-                    <input type="search" class="form-control" id="search" required>
+                    <label for="search">Opponent Username:</label>
+                    <input type="text" class="form-control" id="searchOpponents" placeholder="Search..." required>
+                    <ul class="list-group" id="usernameList">
+                      <!-- dynamic username list inserted here -->
+                    </ul> 
                   </div>
                   <div class="form-group">
                     <label for="number">Ethereum to Wager:</label>
@@ -139,7 +142,7 @@
       </div>
     </div>
 
-    <script src="inbox.js"></script>
+<script src="new_competition.js"></script>
     <script src="betManager.js"></script>
   </body>
 </html>
