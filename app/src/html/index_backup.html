@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fitcoin</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <div class="header">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+          <div class="container">
+            <a class="navbar-brand" href="#" style="height: 100%; width: 100%; object-fit: contain">
+              <!-- <img src="http://placehold.it/150x50?text=Logo" alt="logo"> -->
+              Fitcoin
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto" style="font-size: 150%; font-size: 1.5vw;">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home
+                    <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Inbox</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Competitions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Profile</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+
+      <!-- Modal for logging in -->
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#login-modal">Login</button>
+
+      <!-- Modal -->
+      <div id="login-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Login</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p>Some text in the modal.</p>
+              <form action="/action_page.php">
+                <div class="form-group">
+                  <label for="email">Email address:</label>
+                  <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="pwd">Password:</label>
+                  <input type="password" class="form-control" id="pwd" required>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox"> Remember me</label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container">
+          <h2>Fitcoin</h2>
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#index">Profile</a></li>
+            <li><a href="#search">Search</a></li>
+            <li><a href="#inbox">Inbox</a></li>
+            <li><a href="#bets">Bets</a></li>
+          </ul>
+        
+          <div class="tab-content">
+            <div id="profile" class="tab-pane fade in active">
+              <h3>Profile</h3>
+              <p>Username</p>
+    
+            </div>
+            <div id="search" class="tab-pane fade">
+              <h3>Search</h3>
+              
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div id="inbox" class="tab-pane fade">
+              <h3>Inbox</h3>
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    
+                <div class="row" id="row">
+                  <div class="column">
+                    <h2>Incoming</h2>
+                    <p>Some text..</p>
+                  </div>
+                  <div class="column" id="column">
+                    <h2>Outgoing</h2>
+                    <p>Some text..</p>
+                  </div>
+                </div>
+    
+            </div>
+            <div id="bets" class="tab-pane fade">
+              <h3>Bets</h3>
+              <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            </div>
+          </div>
+        </div>
+
+    
+    <!-- Modal for creating a competition -->
+    <h1> Inbox </h1>
+
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#new-competition-modal">New Competition</button>
+
+    <!-- Modal -->
+    <div id="new-competition-modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">New Competition </h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+            <form action="/action_page.php">
+              <div class="form-group">
+                <label for="people">Participants:</label>
+                <input type="people" class="form-control" id="people" required>
+              </div>
+              <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="amount" class="form-control" id="amount" required>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Incoming</h2>
+        <!-- <div class='incoming-bet' style="background-color:rgb(125, 149, 255)">
+          <p>Sender 1</p>
+          <p>Date 1</p>
+          <p>Amount 1</p>
+        </div>
+        <div class='incoming-bet' style="background-color:rgb(81, 113, 255)">
+          <p>Sender 2</p>
+          <p>Date 2</p>
+          <p>Amount 2</p>
+        </div> -->
+      </div>
+      <div class="col-sm-6">
+          <h2>Outgoing</h2>
+      </div>
+    </div>
+
+    <!-- <div class="container">
+        <h2>Striped Rows</h2>
+        <p>The .table-striped class adds zebra-stripes to a table:</p>            
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John</td>
+              <td>Doe</td>
+              <td>john@example.com</td>
+            </tr>
+            <tr>
+              <td>Mary</td>
+              <td>Moe</td>
+              <td>mary@example.com</td>
+            </tr>
+            <tr>
+              <td>July</td>
+              <td>Dooley</td>
+              <td>july@example.com</td>
+            </tr>
+          </tbody>
+        </table>
+      </div> -->
+
+
+      <div class="card" style="width: 30rem;">
+        <h5 class="card-header">Competition Request</h5>
+        <div class="card-body">
+          <h5 class="card-title">Competition Request from User 1</h5>
+          <p class="card-text">User 1 asked you to compete...</p>
+          <a href="#" class="btn btn-primary">Accept</a>
+          <a href="#" class="btn btn-secondary">Deny</a>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Date Sent: 7/25/19</li>
+          <li class="list-group-item">Expires: 7/25/19</li>
+          <li class="list-group-item">Competition: Walking</li>
+        </ul>
+      </div>
+
+
+    <!-- <p>
+      <a href="../profile.html"> Click for Profile </a>
+    </p>
+
+    <button onclick="App.profilePage()">New Page</button> -->
+
+    <script src="index.js"></script>
+  </body>
+</html>

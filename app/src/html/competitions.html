@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Fitcoin</title>
+      <title>Fitcoin Bets</title>
       <link rel="stylesheet" href="styles.css">
-
+  
       <!-- Bootstrap -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -12,8 +12,9 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </head>
   <body>
-  <!-- Header -->
-  <div class="header">
+
+   <!-- Header -->
+   <div class="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container">
           <a class="navbar-brand" href="/" style="height: 100%; width: 100%; object-fit: contain">
@@ -30,13 +31,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="api/inbox">Inbox</a>
+                <a class="nav-link" href="inbox">Inbox</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="api/competitions">Competitions</a>
+                <a class="nav-link" href="competitions">Competitions</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="api/profile">Profile</a>
+                <a class="nav-link" href="profile">Profile</a>
               </li>
             </ul>
           </div>
@@ -44,33 +45,8 @@
       </nav>
     </div>
 
-    <h1>Home</h1>
+    <h1>Competitions</h1>
 
-    <h3>Creating a Competition</h3>
-
-    <p>
-      Create a new competition by searching for an opponent's username, entering an amount of Ethereum to wager, and a date of the competition.
-      Search Opponent Username:
-      Ethereum to Wager: The ethereum amount will be removed from your wallet when the competition is created. If your opponent does not accept the competition, the ethereum will be returned to your wallet.
-      Date of Competition: The competition will automatically be cancelled if your opponent does not accept your competition by the start date.
-    </p>
-
-    <p>0xF95718F0A2e9346dfb60B88e7FEdDfAe09160014</p>
-
-    <h1>Bet Fitcoin</h1>
-
-    <label for="amount">Amount:</label>
-    <input type="text" id="amount" placeholder="e.g. 95" />
-
-    <label for="receiver">To address:</label>
-    <input
-      type="text"
-      id="receiver"
-      placeholder="e.g. 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
-    />
-
-    <button onclick="App.createCompetition()">Send MetaCoin</button>
-
-    <script src="index.js"></script>
+    <script src="competitions.js"></script>
   </body>
 </html>
