@@ -2,19 +2,20 @@
   box-sizing: border-box;
 }
 
-/* Create two equal columns that floats next to each other */
-#column .column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  background-color:red;
-  /* height: 300px; Should be removed. Only for demonstration */
+.inbox-header {
+  background-color: #ADD7F6;
 }
 
-/* Clear floats after the columns */
-#row .row:after {
-  content: "";
-  display: table;
-  clear: both;
-  background-color:red;
+#new-competition-button {
+  background-color: #2F32B0;
+  border-color: #2F32B0;
+}
+
+.inbox-card {
+  margin-bottom: 5%;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 1%;
 }
