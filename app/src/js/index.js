@@ -49,12 +49,15 @@ const App = {
     const receiver = document.getElementById("receiver").value;
 
     const {
-      createCompetition
+      createCompetition, getLastBet
     } = this.fitcoin.methods;
-    const id = await createCompetition(amount, receiver).send({
+    await createCompetition(amount, receiver).send({
       from: this.account,
       value: amount,
     });
+    const id = await getLastBet().call();
+    console.log(id);
+    this.setStatus('The ID for your bet is ' + id);
   },
 
   getShit: async function() {
@@ -71,19 +74,22 @@ const App = {
     console.log('player', player);
   },
 
-  // makeBet: async function() {
-  //   const amount = parseInt(document.getElementById("amount").value);
-  //
-  //   const {
-  //     makeBet
-  //   } = this.fitcoin.methods;
-  //   await makeBet(1).send({
-  //     from: this.account,
-  //     value: amount * 10 ** 18
-  //   });
-  // },
+  acceptBet: async function() {
+    const amount = web3.toWei(parseInt(document.getElementById("amount").value), "ether");
+    const id = document.getElementById("receiver").value;
+
+    const {
+      acceptBet
+    } = this.fitcoin.methods;
+    await acceptBet(id).send({
+      from: this.account,
+      value: amount,
+    });
+  },
 
   cancelBet: async function() {
+    const id = document.getElementById("receiver").value;
+
     web3.eth.getAccounts(function(error, accounts) {
       if (accounts && accounts.length > 0) {
         // we reload the contract instance
@@ -91,7 +97,7 @@ const App = {
           // we call the close function, specifying a gas amount that corresponds to an estimation
           // of the cost of this operation. Note that if there are too many supporters to pay back
           // this operation may fail
-          return instance.cancelBet(1, {
+          return instance.cancelBet(id, {
             from: accounts[0],
             gas: 500000
           });
@@ -99,7 +105,7 @@ const App = {
           // given that certain node implementations don't throw an exception when a transaction fail
           // we check the status of the transaction receipt
           if (parseInt(result.receipt.status) === 1) {
-            console.log('yay')
+            console.log('Transaction success!')
           } else {
             console.error("Transaction didn't succeed");
           }
