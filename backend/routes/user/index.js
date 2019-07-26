@@ -29,6 +29,8 @@ var users = [
     }
 ];
 
+currentUser = ""
+
 router.get('/all', (req, res) =>{
     res.json(users);
 });
@@ -37,6 +39,16 @@ router.get('/:id', (req, res) =>{
     id = req.params.id;
     res.json(users.find( (user) =>{
         return user.username == id;
+    }));
+});
+
+router.post('/:id', (req, res) =>{
+    currentUser = req.params.id;
+});
+
+router.get('/current', (req, res) =>{
+    res.json(users.find( (user) =>{
+        return user.username == currentUser;
     }));
 });
 
