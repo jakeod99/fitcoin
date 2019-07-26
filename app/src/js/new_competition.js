@@ -8,23 +8,13 @@
       tomorrow.setDate(today.getDate() + 1);
       one_week.setDate(tomorrow.getDate() + 7);
 
-      $('#date').attr('min', tomorrow.toISOString().substring(0,10));
-      $('#date').attr('max', one_week.toISOString().substring(0,10));
+      $('#startDate').attr('min', tomorrow.toISOString().substring(0,10));
+      $('#startDate').attr('max', one_week.toISOString().substring(0,10));
     },
 
     selectUsername: async function(username){
-      console.log(username);
       document.getElementById("searchOpponents").value = username;
       document.getElementById("usernameList").innerHTML = "";
-    },
-
-    validateUsername: async function(){
-      usernames = ["Julia", "Jake", "Julian", "Jessica"];
-      username = document.getElementById("searchOpponents").value;
-      verified = usernames.includes(username)
-      if (!verified) {
-        
-      }
     },
   };
 
@@ -36,8 +26,8 @@
       } else if (value.length >= 1) {
         usernames = ["Julia", "Jake", "Julian", "Jessica"];
         list_html = usernames.reduce(function(accumulator, name) {
-          entry_html = "<li class='list-group-item' onclick=\"NewCompetition.selectUsername('" + name + "')\">" + name + "</li> ";
-          console.log(entry_html);
+          entry_html = `<li class='list-group-item' onclick=\"NewCompetition.selectUsername('${name}')\">${name}</li> `;
+          // entry_html = "<li class='list-group-item' onclick=\"NewCompetition.selectUsername('" + name + "')\">" + name + "</li> ";
           return accumulator + entry_html;
         }, "");
         document.getElementById("usernameList").innerHTML = list_html;

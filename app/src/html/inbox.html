@@ -61,7 +61,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
               <div class="modal-body">
-                <form action="competitions">
+                <form id="new-competition-form" action="inbox">
                   <div class="form-group">
                     <label for="search">Opponent Username:</label>
                     <input type="text" class="form-control" id="searchOpponents" placeholder="Search..." required>
@@ -71,11 +71,11 @@
                   </div>
                   <div class="form-group">
                     <label for="number">Ethereum to Wager:</label>
-                    <input type="number" class="form-control" id="amount" min="0" required>
+                    <input type="number" class="form-control" id="wager" min="0" required>
                   </div>
                   <div class="form-group">
                     <label for="date">Date of Competition:</label>
-                    <input type="date" class="form-control" id="date" required>
+                    <input type="date" class="form-control" id="startDate" required>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -124,15 +124,14 @@
               <h2 style="text-align: center">Outgoing</h2>
 
               <div class="card page-card">
-                  <div class="card-header card-title">
-                    <h5 class="card-title">Request To: jpa</h5>
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text">Date Sent: 7/25/19</p>
-                    <p class="card-text">Date of Competition: 7/30/19</p>
-                    <p class="card-text">Wager: 5 Ethereum</p>
-                    <a href="#" class="btn btn-secondary ">Cancel</a>
-                  </div>
+                <div class="card-header card-title">
+                  <h5 class="card-title">Request To: jpa</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Date Sent: 7/25/19</p>
+                  <p class="card-text">Date of Competition: 7/30/19</p>
+                  <p class="card-text">Wager: 5 Ethereum</p>
+                  <a href="#" class="btn btn-secondary ">Cancel</a>
                 </div>
               </div>
 
@@ -144,5 +143,6 @@
 
     <script src="new_competition.js"></script>
     <script src="betManager.js"></script>
+    <script src="inbox.js"></script>
   </body>
 </html>

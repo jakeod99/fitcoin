@@ -19,5 +19,8 @@ router.get('/new_competition.js', (req, res) =>{
 router.get('/betManager.js', (req, res) => {
     res.sendFile(path.resolve('../app/src/js/betManager.js'));
 });
+router.get('/inbox.js', (req, res) => {
+    res.sendFile(path.resolve('../app/src/js/inbox.js'));
+});
 
 module.exports = router;
