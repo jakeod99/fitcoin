@@ -13,8 +13,11 @@ router.get('/:name', (req, res) => {
 });
 
 // JavaScript References
-router.get('/inbox.js', (req, res) =>{
-    res.sendFile(path.resolve('../app/src/js/inbox.js'));
+router.get('/new_competition.js', (req, res) =>{
+    res.sendFile(path.resolve('../app/src/js/new_competition.js'));
+});
+router.get('/betManager.js', (req, res) => {
+    res.sendFile(path.resolve('../app/src/js/betManager.js'));
 });
 
 module.exports = router;

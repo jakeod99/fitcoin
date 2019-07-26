@@ -50,7 +50,9 @@
         <h1>Inbox</h1>
 
         <!-- New Competition Modal -->
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#new-competition-modal" id="new-competition-button" onclick="Inbox.setDates()"> Create New Competition</button>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#new-competition-modal" id="new-competition-button" onclick="NewCompetition.setDates()"> Create New Competition</button>
+      </div>
+
         <div id="new-competition-modal" class="modal fade" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -59,10 +61,13 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
               <div class="modal-body">
-                <form action="/action_page.php">
+                <form action="competitions">
                   <div class="form-group">
-                    <label for="search">Search Opponent Username:</label>
-                    <input type="search" class="form-control" id="search" required>
+                    <label for="search">Opponent Username:</label>
+                    <input type="text" class="form-control" id="searchOpponents" placeholder="Search..." required>
+                    <ul class="list-group" id="usernameList">
+                      <!-- dynamic username list inserted here -->
+                    </ul> 
                   </div>
                   <div class="form-group">
                     <label for="number">Ethereum to Wager:</label>
@@ -75,69 +80,69 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary" id='form' onclick="betManager.makeBet(1, 2, 3)">Submit</button>
                 </div>
               </form>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="container inbox-header">
+      <div class="container page-section-title">
 
-      <div class="row">
-        <div class="col-sm-6">
-          <h2 style="text-align: center">Incoming</h2>
-          <div class="card inbox-card">
-            <div class="card-header card-title">
-              <h5 class="card-title">Request From: ashih</h5>
-            </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <h2 style="text-align: center">Incoming</h2>
 
-            <div class="card-body">
-              <p class="card-text">Date Sent: 7/25/19</p>
-              <p class="card-text">Date of Competition: 7/30/19</p>
-              <p class="card-text">Wager: 5 Ethereum</p>
-              <a href="#" class="btn btn-primary">Accept</a>
-              <a href="#" class="btn btn-secondary">Deny</a>
-            </div>
-          </div>
-
-          <div class="card inbox-card">
-            <div class="card-header card-title">
-              <h5 class="card-title">Request From: ashih</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">Date Sent: 7/25/19</p>
-              <p class="card-text">Date of Competition: 7/30/19</p>
-              <p class="card-text">Wager: 5 Ethereum</p>
-              <a href="#" class="btn btn-primary">Accept</a>
-              <a href="#" class="btn btn-secondary">Deny</a>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-sm-6">
-            <h2 style="text-align: center">Outgoing</h2>
-
-            <div class="card inbox-card">
-                <div class="card-header card-title">
-                  <h5 class="card-title">Request To: jpa</h5>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">Date Sent: 7/25/19</p>
-                  <p class="card-text">Date of Competition: 7/30/19</p>
-                  <p class="card-text">Wager: 5 Ethereum</p>
-                  <a href="#" class="btn btn-secondary ">Cancel</a>
-                </div>
+            <div class="card page-card">
+              <div class="card-header card-title">
+                <h5 class="card-title">Request From: ashih</h5>
+              </div>
+              <div class="card-body">
+                <p class="card-text">Date Sent: 7/25/19</p>
+                <p class="card-text">Date of Competition: 7/30/19</p>
+                <p class="card-text">Wager: 5 Ethereum</p>
+                <a href="#" class="btn btn-primary" onclick="betManager.acceptBet()">Accept</a>
+                <a href="#" class="btn btn-secondary">Deny</a>
               </div>
             </div>
 
+            <div class="card page-card">
+              <div class="card-header card-title">
+                <h5 class="card-title">Request From: ashih</h5>
+              </div>
+              <div class="card-body">
+                <p class="card-text">Date Sent: 7/25/19</p>
+                <p class="card-text">Date of Competition: 7/30/19</p>
+                <p class="card-text">Wager: 5 Ethereum</p>
+                <a href="#" class="btn btn-primary" onclick="betManager.acceptBet()">Accept</a>
+                <a href="#" class="btn btn-secondary">Deny</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-sm-6">
+              <h2 style="text-align: center">Outgoing</h2>
+
+              <div class="card page-card">
+                  <div class="card-header card-title">
+                    <h5 class="card-title">Request To: jpa</h5>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text">Date Sent: 7/25/19</p>
+                    <p class="card-text">Date of Competition: 7/30/19</p>
+                    <p class="card-text">Wager: 5 Ethereum</p>
+                    <a href="#" class="btn btn-secondary ">Cancel</a>
+                  </div>
+                </div>
+              </div>
+
+          </div>
         </div>
-      </div>
 
       </div>
     </div>
 
-    <script src="inbox.js"></script>
+    <script src="new_competition.js"></script>
+    <script src="betManager.js"></script>
   </body>
 </html>

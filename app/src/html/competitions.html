@@ -11,7 +11,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </head>
-  <body>
+  <body id='competitions'>
 
    <!-- Header -->
    <div class="header">
@@ -45,8 +45,82 @@
       </nav>
     </div>
 
-    <h1>Competitions</h1>
+    <div class="container">
+      <div class="container page-title">
+        <h1>Competitions</h1>
+      </div>
 
-    <script src="competitions.js"></script>
+      <div class="container page-section-title">
+          <div class="row">
+              <div class="col-sm-4">
+                <h2 style="text-align: center">Pending Bets</h2>
+    
+                <div class="card page-card">
+                  <div class="card-header card-title">
+                    <h5 class="card-title">Opponent: ashih</h5>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text">Date of Competition: 7/30/19</p>
+                    <p class="card-text">Wager: 5 Ethereum</p>
+                  </div>
+                </div>
+    
+              </div>
+
+              <div class="col-sm-4">
+                <h2 style="text-align: center">Ongoing Bets</h2>
+  
+                <div class="card page-card">
+                  <div class="card-header card-title">
+                    <h5 class="card-title">Opponent: jpa</h5>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text">Date of Competition: Today</p>
+                    <p class="card-text">Wager: 5 Ethereum</p>
+                    <p class="card-text">Your Current Steps: 5000</p>
+                  </div>
+                </div>
+
+              </div>
+    
+              <div class="col-sm-4">
+                <h2 style="text-align: center">Completed Bets</h2>
+  
+                <div class="card page-card border-success">
+                  <div class="card-header card-title bg-success">
+                    <h5 class="card-title">Opponent: jpa</h5>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text">Result: You won!</p>
+                    <p class="card-text">Date of Competition: 7/30/19</p>
+                    <p class="card-text">Wager: 5 Ethereum</p>
+                    <p class="card-text">Your Total Steps: 6000</p>
+                    <p class="card-text">Opponent's Total Steps: 5000</p>
+                  </div>
+                </div>
+
+                <div class="card page-card border-danger">
+                  <div class="card-header card-title bg-danger">
+                    <h5 class="card-title">Opponent: jpa</h5>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text">Result: You lost!</p>
+                    <p class="card-text">Date of Competition: 7/30/19</p>
+                    <p class="card-text">Wager: 5 Ethereum</p>
+                    <p class="card-text">Your Total Steps: 5000</p>
+                    <p class="card-text">Opponent's Total Steps: 6000</p>
+                  </div>
+                </div>
+      
+              </div>
+            
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="new_competition.js"></script>
+    <script src="betManager.js"></script>
   </body>
 </html>

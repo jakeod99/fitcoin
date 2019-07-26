@@ -44,18 +44,32 @@
       </nav>
     </div>
 
-    <h1>Home</h1>
+    <div class="container">
+      <div class="container page-title">
+        <h1>Home</h1>
+      </div>
 
-    <h3>Creating a Competition</h3>
+      <div class="container page-section-title">
+        <h3>What is Fitcoin?</h3>
+        <p>
+          Create a new competition by searching for an opponent's username, entering an amount of Ethereum to wager, and a date of the competition.
+          Search Opponent Username:
+          Ethereum to Wager: The ethereum amount will be removed from your wallet when the competition is created. If your opponent does not accept the competition, the ethereum will be returned to your wallet.
+          Date of Competition: The competition will automatically be cancelled if your opponent does not accept your competition by the start date.
+        </p>
+        
+        <h3>Creating a Competition</h3>
+        <p>
+          Create a new competition by searching for an opponent's username, entering an amount of Ethereum to wager, and a date of the competition.
+          Search Opponent Username:
+          Ethereum to Wager: The ethereum amount will be removed from your wallet when the competition is created. If your opponent does not accept the competition, the ethereum will be returned to your wallet.
+          Date of Competition: The competition will automatically be cancelled if your opponent does not accept your competition by the start date.
+        </p>
+        
+      </div>
+    </div>
 
-    <p>
-      Create a new competition by searching for an opponent's username, entering an amount of Ethereum to wager, and a date of the competition.
-      Search Opponent Username:
-      Ethereum to Wager: The ethereum amount will be removed from your wallet when the competition is created. If your opponent does not accept the competition, the ethereum will be returned to your wallet.
-      Date of Competition: The competition will automatically be cancelled if your opponent does not accept your competition by the start date.
-    </p>
-
-    <p>0xF95718F0A2e9346dfb60B88e7FEdDfAe09160014</p>
+    <p>0xB28C2cF6E0Cf354Bc0Fb2E1D01A6E10C7E943B76</p>
 
     <h1>Bet Fitcoin</h1>
 
@@ -69,7 +83,15 @@
       placeholder="e.g. 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
     />
 
-    <button onclick="App.createCompetition()">Send MetaCoin</button>
+    <button onclick="App.createCompetition()">Create Competition</button>
+
+    <button onclick="App.cancelBet()">Cancel Bet</button>
+
+    <button onclick="App.acceptBet()"> Accept Bet </button>
+
+    <button onclick="App.payoutBet()"> payout bet </button>
+
+    <p id="status"></p>
 
     <script src="index.js"></script>
   </body>
