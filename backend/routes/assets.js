@@ -8,8 +8,8 @@ router.get('/styles.css', (req, res) =>{
 });
 
 // JPG References
-router.get('/profilepic.jpg', (req, res) => {
-    res.sendFile(path.resolve('../app/src/images/profilepic.jpg'));
+router.get('/:name', (req, res) => {
+    res.sendFile(path.resolve(`../app/src/images/profilepic.jpg`));
 });
 
 // JavaScript References

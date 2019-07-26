@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var assetRouter = require('./assets')
+var assetRouter = require('./assets');
+var userRouter = require('./user')
 var path = require('path');
 
 // HTML References
@@ -21,5 +22,7 @@ router.get('/inbox', (req, res) =>{
 });
 
 router.use('/', assetRouter);
+
+router.use('/user', userRouter);
 
 module.exports = router;
