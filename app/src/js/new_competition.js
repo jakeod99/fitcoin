@@ -24,10 +24,9 @@
       if (value.length == 0) {
         document.getElementById("usernameList").innerHTML = "";
       } else if (value.length >= 1) {
-        usernames = ["Julia", "Jake", "Julian", "Jessica"];
+        var usernames = ["Jake", "Julia", "Alex", "Nicole"];
         list_html = usernames.reduce(function(accumulator, name) {
           entry_html = `<li class='list-group-item' onclick=\"NewCompetition.selectUsername('${name}')\">${name}</li> `;
-          // entry_html = "<li class='list-group-item' onclick=\"NewCompetition.selectUsername('" + name + "')\">" + name + "</li> ";
           return accumulator + entry_html;
         }, "");
         document.getElementById("usernameList").innerHTML = list_html;
