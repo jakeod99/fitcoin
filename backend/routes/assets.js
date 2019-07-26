@@ -8,7 +8,7 @@ router.get('/styles.css', (req, res) =>{
 });
 
 // JPG References
-router.get('/:name', (req, res) => {
+router.get('/images/:name', (req, res) => {
     res.sendFile(path.resolve(`../app/src/images/profilepic.jpg`));
 });
 

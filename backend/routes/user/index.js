@@ -35,7 +35,7 @@ router.get('/all', (req, res) =>{
     res.json(users);
 });
 
-router.get('/:id', (req, res) =>{
+router.get('/specific/:id', (req, res) =>{
     id = req.params.id;
     res.json(users.find( (user) =>{
         return user.username == id;
