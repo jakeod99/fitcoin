@@ -14,6 +14,7 @@ contract Fitcoin {
   }
 
   function createCompetition(uint _betSize, address payable _player) public payable returns (uint){
+    require(_player != msg.owner, "You cannot be against yourself.")
     id++;
     Bet newBet = new Bet(id, msg.sender, _player, _betSize);
     bets[id] = newBet;
@@ -31,25 +32,21 @@ contract Fitcoin {
 
   function cancelBet(uint _id) public {
     require(_id >= 1 && _id <= id, "Bet does not exist!");
-    /* require(msg.sender == bets[_id].owner()); */
-    /* bool cancelled = bets[_id].cancel(); */
-    /* if (cancelled) {
+    require(msg.sender == bets[_id].owner());
+    bool cancelled = bets[_id].cancel();
+    if (cancelled) {
       bets[_id].owner().transfer(bets[_id].betAmount());
-    } */
-    /* address payable wallet = address(uint160(msg.sender));
-    wallet.transfer(1*10**18); */
-    bets[_id].owner().transfer(bets[_id].betAmount());
+    }
+    /* bets[_id].owner().transfer(bets[_id].betAmount()); */
   }
 
   function payoutBet(uint _id, address payable winner) public {
-    /* require(_id >= 1 && _id < id, "Bet does not exist!"); */
-    /* require(bets[id].player() == msg.sender, "You are not in this competition."); */
-    /* require(bets[_id].players(winner) == true, "Player does not exist!"); */
-    /* require(bets[_id].active() == true, "Bet is not running.") */
-    /* bool cancelled = bets[_id].cancel(); */
-    /* if (cancelled) { */
-    winner.transfer(bets[_id].total());
-    /* } */
+    require(_id >= 1 && _id < id, "Bet does not exist!");
+    require(bets[_id].active() == true, "Bet is not running.")
+    bool cancelled = bets[_id].cancel();
+    if (cancelled) {
+      winner.transfer(bets[_id].total());
+    }
   }
 
   function getLastBet() view public returns (uint) {
