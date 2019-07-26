@@ -12,16 +12,24 @@
       $('#date').attr('max', one_week.toISOString().substring(0,10));
     },
 
-    selectUsername: async function(userName){
-      console.log(userName);
-      document.getElementById("searchOpponents").value = userName;
+    selectUsername: async function(username){
+      console.log(username);
+      document.getElementById("searchOpponents").value = username;
       document.getElementById("usernameList").innerHTML = "";
+    },
+
+    validateUsername: async function(){
+      usernames = ["Julia", "Jake", "Julian", "Jessica"];
+      username = document.getElementById("searchOpponents").value;
+      verified = usernames.includes(username)
+      if (!verified) {
+        
+      }
     },
   };
 
   $(document).ready(function(){
     $("#searchOpponents").on("keyup", function() {
-      console.log("key up");
       var value = $(this).val().toLowerCase();
       if (value.length == 0) {
         document.getElementById("usernameList").innerHTML = "";
@@ -41,5 +49,5 @@
   });
 
   window.NewCompetition = NewCompetition;
-  
+
 })();
