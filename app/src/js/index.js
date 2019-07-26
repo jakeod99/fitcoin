@@ -60,7 +60,7 @@ const App = {
     this.setStatus('The ID for your bet is ' + id);
   },
 
-  getShit: async function() {
+  getStuff: async function() {
     const {
       getOwner,
       betAmount,

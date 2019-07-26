@@ -9,7 +9,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "moment": "^2.24.0",
-    "openzeppelin-solidity": "2.3.0"
+    "openzeppelin-solidity": "2.3.0",
+    "truffle-contract": "^4.0.26"
   },
   "devDependencies": {},
   "scripts": {
