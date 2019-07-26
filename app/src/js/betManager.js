@@ -65,6 +65,16 @@
     }
   };
 
+  $("#new-competition-form").on( "submit", function( event ) {
+    // event.preventDefault();
+    opponent = document.getElementById("searchOpponents").value;
+    wager = document.getElementById("wager").value;
+    startDate = document.getElementById("startDate").value;
+
+    console.log("form:" + opponent + wager + startDate);
+    alert('stop');
+  });
+
   window.betManager = betManager;
 })();
 $('#competitions').ready(window.betManager.checkIfRecent);
