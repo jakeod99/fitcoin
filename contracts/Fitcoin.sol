@@ -46,10 +46,10 @@ contract Fitcoin {
     /* require(bets[id].player() == msg.sender, "You are not in this competition."); */
     /* require(bets[_id].players(winner) == true, "Player does not exist!"); */
     /* require(bets[_id].active() == true, "Bet is not running.") */
-    bool cancelled = bets[_id].cancel();
-    if (cancelled) {
-      winner.transfer(bets[_id].total());
-    }
+    /* bool cancelled = bets[_id].cancel(); */
+    /* if (cancelled) { */
+    winner.transfer(bets[_id].total());
+    /* } */
   }
 
   function getLastBet() view public returns (uint) {
@@ -70,6 +70,10 @@ contract Fitcoin {
 
     function getPlayer(uint _id) view public returns(address) {
       return bets[_id].player();
+    }
+
+    function getTotal(uint _id) view public returns(uint) {
+      return bets[_id].total();
     }
 
 
