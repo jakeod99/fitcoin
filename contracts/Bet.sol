@@ -18,7 +18,7 @@ contract Bet {
     player = _player;
     betAmount = _bet;
     active = false;
-    total = betAmount;
+    total = 0;
   }
 
   function addPlayer() public {
