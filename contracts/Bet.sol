@@ -12,13 +12,13 @@ contract Bet {
   address payable[] public allPlayers;
   string public name; */
 
-  constructor(uint _id, address payable _player, uint _bet) public {
-    owner = msg.sender;
+  constructor(uint _id, address payable _owner, address payable _player, uint _bet) public {
+    owner = _owner;
     id = _id;
     player = _player;
     betAmount = _bet;
     active = false;
-    total = betAmount;
+    total = 0;
   }
 
   function addPlayer() public {
@@ -30,9 +30,8 @@ contract Bet {
     total += betAmount;
   }
 
-  function cancelBet() public returns (bool) {
-    require(active, "Bet is not running.");
-    require(msg.sender == owner, "You are not the owner of this bet.");
+  function cancel() public returns (bool) {
+    require(!active, "Bet already in progress.");
     active = false;
     return true;
   }

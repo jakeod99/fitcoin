@@ -70,14 +70,20 @@
               <div class="col-sm-4">
                 <h2 style="text-align: center">Ongoing Bets</h2>
   
-                <div class="card page-card">
-                  <div class="card-header card-title">
+                <div class="card page-card border-primary">
+                  <div class="card-header card-title bg-primary">
                     <h5 class="card-title">Opponent: jpa</h5>
                   </div>
                   <div class="card-body">
                     <p class="card-text">Date of Competition: Today</p>
                     <p class="card-text">Wager: 5 Ethereum</p>
                     <p class="card-text">Your Current Steps: 5000</p>
+                    <p class="card-text">Progress: </p>
+
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-info progress-bar-striped" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -122,5 +128,6 @@
 
     <script src="new_competition.js"></script>
     <script src="betManager.js"></script>
+    <script src="competitions.js"></script>
   </body>
 </html>
