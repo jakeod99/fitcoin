@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Fitcoin Profile</title>
+    <link rel="stylesheet" href="styles.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -28,7 +29,7 @@
         <div class="container">
           <a
             class="navbar-brand"
-            href="#"
+            href="/"
             style="height: 100%; width: 100%; object-fit: contain"
           >
             Fitcoin
@@ -50,33 +51,44 @@
               style="font-size: 150%; font-size: 1.5vw;"
             >
               <li class="nav-item active">
-                <a class="nav-link" href="#"
+                <a class="nav-link" href="/"
                   >Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="api/inbox">Inbox</a>
+                <a class="nav-link" href="inbox">Inbox</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="api/competitions">Competitions</a>
+                <a class="nav-link" href="competitions" onclick="betManager.checkIfStarted(30); betManager.checkIfRecent(40)">Competitions</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="api/profile">Profile</a>
+                <a class="nav-link" href="profile">Profile</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </div>
-    <h1 style="text-align: center; color: rgb(64, 51, 253)">Profile</h1>
-    <div style="text-align: center">
-      <img src="/api/profilepic.jpg" alt="profile picture" />
-      <i class="fas fa-shoe-prints"></i>
-      <h3>username: jpa399</h3>
-      <h5>avg. steps: 10,000</h5>
-      <h5>record steps: 30,000</h5>
-      <h5>public key: 0387039842938453</h5>
+
+    <div class="container">
+      <div class="container page-title">
+        <h1>Profile</h1>
+      </div>
+
+      <div class="container page-section-title">
+
+        <div style="text-align: center">
+          <img src="/api/profilepic.jpg" alt="profile picture" />
+          <i class="fas fa-shoe-prints"></i>
+          <h3>username: jpa399</h3>
+          <h5>avg. steps: 10,000</h5>
+          <h5>record steps: 30,000</h5>
+          <h5>public key: 0387039842938453</h5>
+        </div>
+
+      </div>
     </div>
+    <script src="betManager.js"></script>
   </body>
 </html>

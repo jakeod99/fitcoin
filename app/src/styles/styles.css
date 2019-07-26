@@ -2,19 +2,26 @@
   box-sizing: border-box;
 }
 
-/* Create two equal columns that floats next to each other */
-#column .column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  background-color:red;
-  /* height: 300px; Should be removed. Only for demonstration */
+#new-competition-button {
+  background-color: #2F32B0;
+  border-color: #2F32B0;
 }
 
-/* Clear floats after the columns */
-#row .row:after {
-  content: "";
-  display: table;
-  clear: both;
-  background-color:red;
+.page-card {
+  margin-bottom: 5%;
+}
+
+.page-section-title {
+  background-color: #ADD7F6;
+  margin-bottom: 5%;
+}
+
+.page-title {
+  text-align: center;
+  padding: 1%;
+  margin-bottom: 1%;
+}
+
+.list-group-item {
+  cursor: pointer;
 }
