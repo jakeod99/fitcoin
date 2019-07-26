@@ -50,48 +50,72 @@
       </div>
 
       <div class="container page-section-title">
-        <h3>What is Fitcoin?</h3>
-        <p>The head-to-head exersize experience that utilizes cryptocurrency to facilitate a healthy competition between friends, coworkers, and anyone interested in wagering their walking!</p>
-        
-        <h3>Why Fitcoin?</h3> 
+        <h2>Background</h2>
+
+        <h3>The Problem</h3>
         <p>
-           
+          Obesity epidemic in the US affects ~40% of adults in America, and many people have low incentives for walking. 
         </p>
         
+        <h3>The Idea</h3>
+        <p>
+          <ul>
+            <li>Make exercise social</li>
+            <li>Incorporate friendly competition</li>
+            <li>Introduce financial incentive</li>
+            <li>Take advantage of Ethereum's use of smart contracts</li>
+          </ul>
+        </p>
+          
+        <h3>The Solution</h3>
+        <h4>What is Fitcoin?</h4>
+        <p>
+          The head-to-head exersize experience that utilizes cryptocurrency to facilitate a healthy competition between friends, coworkers, and anyone interested in wagering their walking!
+        </p>
+        
+        <h2>Rules</h2>
+
         <h3>Creating a Competition</h3>
         <p>
           Create a new competition by searching for an opponent's username, entering an amount of Ethereum to wager, and a date of the competition.
-          Search Opponent Username:
-          Ethereum to Wager: The ethereum amount will be removed from your wallet when the competition is created. If your opponent does not accept the competition, the ethereum will be returned to your wallet.
-          Date of Competition: The competition will automatically be cancelled if your opponent does not accept your competition by the start date.
+          <ul>
+            <li>Opponent Username: Search for your opponent's username. </li>
+            <li>Ethereum to Wager: The ethereum amount will be removed from your wallet when the competition is created. </li>
+              <ul>
+                <li>If your opponent does not accept the competition, the ethereum will be returned to your wallet.</li>
+              </ul>
+            <li>Date of Competition: The competition will automatically be cancelled if your opponent does not accept your competition by the start date.</li>
+          </ul>
         </p>
         
       </div>
     </div>
 
-    <p>0xB28C2cF6E0Cf354Bc0Fb2E1D01A6E10C7E943B76</p>
+    <!-- <p>0xB28C2cF6E0Cf354Bc0Fb2E1D01A6E10C7E943B76</p> -->
 
-    <h1>Bet Fitcoin</h1>
+    <div class="container">
+      <h1>Bet Fitcoin</h1>
 
-    <label for="amount">Amount:</label>
-    <input type="text" id="amount" placeholder="e.g. 95" />
+      <label for="amount">Amount:</label>
+      <input type="text" id="amount" placeholder="e.g. 95" />
 
-    <label for="receiver">To address:</label>
-    <input
-      type="text"
-      id="receiver"
-      placeholder="e.g. 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
-    />
+      <label for="receiver">To address:</label>
+      <input
+        type="text"
+        id="receiver"
+        placeholder="e.g. 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
+      />
 
-    <button onclick="App.createCompetition()">Create Competition</button>
+      <button onclick="App.createCompetition()">Create Competition</button>
 
-    <button onclick="App.cancelBet()">Cancel Bet</button>
+      <button onclick="App.cancelBet()">Cancel Bet</button>
 
-    <button onclick="App.acceptBet()"> Accept Bet </button>
+      <button onclick="App.acceptBet()"> Accept Bet </button>
 
-    <button onclick="App.payoutBet()"> payout bet </button>
+      <button onclick="App.payoutBet()"> payout bet </button>
 
-    <p id="status"></p>
+      <p id="status"></p>
+    </div>
 
     <script src="index.js"></script>
   </body>
