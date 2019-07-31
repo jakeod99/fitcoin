@@ -1,6 +1,6 @@
 # Fitcoin
 
-The head-to-head exersize experience that utilizes cryptocurrency to facilitate a healthy competition between friends, coworkers, and anyone interested in wagering their walking!
+The head-to-head, peer-to-peer exercise experience that utilizes cryptocurrency to facilitate a healthy competition between friends, coworkers, and anyone interested in wagering their walking!
 
 ## Installation for Development
 
