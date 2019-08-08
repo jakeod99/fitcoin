@@ -43,3 +43,6 @@ The head-to-head, peer-to-peer exercise experience that utilizes cryptocurrency 
     ```
 
 6. Open your web browser and visit localhost:8080 to see everything running!
+
+Approved for Public Release; Distribution Unlimited 19-2312
+©2019 The MITRE Corporation. All Rights Reserved.
